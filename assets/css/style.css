@@ -1,0 +1,59 @@
+html {
+  background-color: black;
+}
+
+body {
+  opacity: 1;
+  transition: 1s opacity;
+}
+
+body.fade-out {
+  opacity: 0;
+  transition: none;
+}
+
+.bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  transition: 0.5s;
+}
+
+.start-search {
+  position: absolute;
+  top: 50%;
+  left: 33%;
+  width: 30%;
+}
+
+#textarea1 {
+  color: white;
+}
+
+.input-field textarea:focus + label {
+  color: #d4e157 !important;
+}
+
+.row .input-field textarea:focus {
+  border-bottom: 1px solid #d4e157 !important;
+  box-shadow: 0 1px 0 0 #d4e157 !important
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #d4e157;
+  mix-blend-mode: overlay;
+}
+
+.transitonOne {
+  transform: scale(3);
+  opacity: 0;
+}
