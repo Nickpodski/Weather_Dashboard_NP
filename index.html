@@ -9,22 +9,38 @@
 </head>
 <body>
   <script>document.body.className += ' fade-out';</script>
-  <video class="bg-video" src="assets/video/Earth_Loop.mp4" muted loop autoplay></video>
+  <video class="bg-video" src="" muted loop autoplay></video>
 
   <div id="initialSearch" class="row start-search">
     <form class="col s12">
       <div class="row">
         <div class="input-field col s12">
           <textarea id="textarea1" class="materialize-textarea"></textarea>
-          <label id="textarea1" for="textarea1">Enter a City</label>
+          <label for="textarea1">Enter a City</label>
           <button id="start-button" class="btn waves-effect waves-light lime lighten-1 black-text" type="submit" name="action">Submit</button>
         </div>
       </div>
     </form>
   </div>
 
-  <div class="container">
+  <div class="forecast" style="display: none;">
+    <div class="row leftCol">
+      <div class="col s2 leftBox">
 
+      </div>
+      <div class="col s10">
+        <div class="row rightBox">
+          <div class="col s10">
+
+          </div>
+        </div>
+        <div class="row rightBoxTwo">
+          <div class="col s10 box">
+  
+          </div>  
+        </div>
+      </div>
+    </div>
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
@@ -32,3 +48,4 @@
   <script src="assets/js/script.js"></script>
 </body>
 </html>
+
