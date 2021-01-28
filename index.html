@@ -12,9 +12,9 @@
   <video class="bg-video" src="" muted loop autoplay></video>
 
   <div id="initialSearch" class="row start-search">
-    <form class="col s12">
+    <form class="col l12">
       <div class="row">
-        <div class="input-field col s12">
+        <div class="input-field col l12">
           <textarea id="textarea1" class="materialize-textarea"></textarea>
           <label for="textarea1">Enter a City</label>
           <button id="start-button" class="btn waves-effect waves-light lime lighten-1 black-text" type="submit" name="action">Submit</button>
@@ -25,18 +25,36 @@
 
   <div class="forecast" style="display: none;">
     <div class="row leftCol">
-      <div class="col s2 leftBox">
-
+      <div class="col l2 leftBox">
+        <h5 class="recent-searches">Recent Searches:</h5>
+          <div class="row z-depth-5 rSRow">
+            <a href="#"><h5></h5></a>
+          </div>
       </div>
-      <div class="col s10">
+      <div class="col l10">
         <div class="row rightBox">
-          <div class="col s10">
+          <div class="col l1">
 
+          </div>
+          <div class="col l10 current-city cForecast z-depth-5">
+            <h3 id="displayCity" class=""></h3>
+            <img id="wiconCurrent" src="" alt="Weather icon">
+            <h5 id="temp-current"></h5>
+            <h5 id="humidity-current"></h5>
+            <h5 id="windSpeed-current"></h5>
+            <h5 id="UV-current"><h5 id="currentUV" class="uvNum"></h5></h5>
+          </div>
+          <div class="col l1">
+            
           </div>
         </div>
         <div class="row rightBoxTwo">
-          <div class="col s10 box">
-  
+          <div class="col l10 box">
+            <div id="fcBox1" class="fcBox1"></div>
+            <div id="fcBox2" class="fcBox2"></div>
+            <div id="fcBox3" class="fcBox3"></div>
+            <div id="fcBox4" class="fcBox4"></div>
+            <div id="fcBox5" class="fcBox5"></div>
           </div>  
         </div>
       </div>
