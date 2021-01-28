@@ -38,6 +38,7 @@ body.fade-out {
   color: #d4e157 !important;
 }
 
+
 .row .input-field textarea:focus {
   border-bottom: 1px solid #d4e157 !important;
   box-shadow: 0 1px 0 0 #d4e157 !important;
@@ -82,14 +83,12 @@ body.fade-out {
   top: 10%;
   right: 10%;
   width: 100%;
-  height: 80%;
+  height: 87%;
 }
 
 .rightBox {
   background-color:  #d4e157;
-  opacity: .5;
   border: solid  #c1c977;
-  background-color:  #d4e157;
   opacity: .8;
   border: solid  #c1c977;
   border-radius: 10px;
@@ -97,20 +96,163 @@ body.fade-out {
   top: 10%;
   left: 20%;
   width: 78%;
-  height: 35%;
+  height: 47%;
 }
 
 .rightBoxTwo {
   background-color:  #d4e157;
-  opacity: .5;
   border: solid  #c1c977;
-  background-color:  #d4e157;
   opacity: .8;
   border: solid  #c1c977;
   border-radius: 10px;
   position: absolute;
-  top: 47%;
+  top: 58%;
   left: 20%;
   width: 78%;
-  height: 43%;
+  height: 39%;
+}
+
+.recent-searches{
+  text-align: center;
+  border-bottom: ridge grey;
+}
+
+h5 {
+  padding-bottom: 10px;
+}
+
+a h5 {
+  color: black;
+}
+
+a h5:hover {
+  font-size: 2rem;
+}
+
+.rSRow {
+  background-color:  grey;
+  border: solid   grey;
+  opacity: .8;
+  border: solid   grey;
+  border-radius: 10px;
+  display: inline-block;
+  position: absolute;
+  left: 12.5%;
+  width: 80%;
+  height: auto;
+  text-align: center;
+}
+
+.current-city {
+  color: black;
+  text-align: center;
+  width: 100%;
+}
+
+.cForecast {
+  background-color:  grey;
+  border: solid   grey;
+  opacity: .8;
+  border: solid   grey;
+  display: inline-block;
+  position: absolute;
+  top: 10%;
+  border-radius: 10px;
+  width: 100%;
+  height: 80%;
+  text-align: center;
+  color: black; 
+}
+
+#UV-current {
+  display: inline;
+}
+
+.uvNum {
+  background-color: red;
+  border: solid red;
+  border-radius: 10px;
+  width: auto;
+  height: auto;
+  display: inline;
+}
+
+.fcBox1 {
+  background-color:  grey;
+  border: solid   grey;
+  opacity: .8;
+  border: solid   grey;
+  display: inline;
+  position: absolute;
+  top: 10%;
+  left: 4%;
+  border-radius: 10px;
+  width: 17%;
+  height: 80%;
+  text-align: center;
+  color: black; 
+}
+
+.fcBox2 {
+  background-color:  grey;
+  border: solid   grey;
+  opacity: .8;
+  border: solid   grey;
+  display: inline;
+  position: absolute;
+  top: 10%;
+  left: 22.75%;
+  border-radius: 10px;
+  width: 17%;
+  height: 80%;
+  text-align: center;
+  color: black; 
+}
+
+.fcBox3 {
+  background-color:  grey;
+  border: solid   grey;
+  opacity: .8;
+  border: solid   grey;
+  display: inline;
+  position: absolute;
+  top: 10%;
+  left: 41.5%;
+  border-radius: 10px;
+  width: 17%;
+  height: 80%;
+  text-align: center;
+  color: black; 
+}
+
+.fcBox4 {
+  background-color:  grey;
+  border: solid   grey;
+  opacity: .8;
+  border: solid   grey;
+  display: inline;
+  position: absolute;
+  top: 10%;
+  left: 60.25%;
+  border-radius: 10px;
+  width: 17%;
+  height: 80%;
+  text-align: center;
+  color: black; 
+}
+
+.fcBox5 {
+  background-color:  grey;
+  border: solid   grey;
+  opacity: .8;
+  border: solid   grey;
+  display: inline;
+  position: absolute;
+  top: 10%;
+  left: 79%;
+  border-radius: 10px;
+  width: 17%;
+  height: 80%;
+  text-align: center;
+  color: black; 
 }
