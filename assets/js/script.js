@@ -79,8 +79,8 @@ function search() {
       url: sQ,
       method: "GET"
     }).done(function(secondResponse){
-      console.log(secondResponse);
       renderCurrentWeather(secondResponse, city);
+      getRecentSearches(city);
       renderFiveDay(secondResponse);
     })
 
@@ -98,12 +98,16 @@ function renderBGVideo(bg) {
     bgVideo.addClass("transitionTwo");
     bgVideo.attr("src", bg);
     $(".forecast").show();
-  }, 500);
+  }, 1000);
+  setTimeout(function() {
+    $("#forecastBoxes").removeClass("newFade");
+  }, 2000);
 };
 
 function renderCurrentWeather(rTwo, city){
   var cd = getTodayDate();
-  $("#displayCity").text(city + " - " + cd);
+  var cityText = city.toUpperCase();
+  $("#displayCity").text(cityText + " - " + cd);
   var currentTemp = rTwo.current.temp;
   var currentHumidity = rTwo.current.humidity;
   var currentWindSpeed = rTwo.current.wind_speed; 
@@ -131,6 +135,12 @@ function renderFiveDay(sR) {
     iImg.attr("id", wiCurrentID);
     iImg.attr('src', iUrl);
     $(box).append(iImg);
+    var newTemp = sR.daily[i].temp.day;
+    $(tempH5).text("Temp: " + newTemp + " °F");
+    $(box).append(tempH5);
+    var newHum = sR.daily[i].humidity;
+    $(humH5).text("Humidity: " + newHum + "%");
+    $(box).append(humH5);
   }
 };
 
@@ -152,6 +162,59 @@ function getNextFiveDates(cd, i) {
   return cd;
 }
 
+function getRecentSearches(city) {
+  c = city.toUpperCase();
+  var savedRecentSearches = JSON.parse(localStorage.getItem("recentSearches"));
+  var recentSearches = [];
+  console.log
+  if (savedRecentSearches === null) {
+    recentSearches.push(c);
+    localStorage.setItem("recentSearches", JSON.stringify(recentSearches));
+    renderRecentSearches(recentSearches);
+  } else {
+    if($.inArray(c, savedRecentSearches) != -1) {
+      pushSavedRecentSearches(savedRecentSearches, recentSearches);
+      checkLength(recentSearches);
+      renderRecentSearches(recentSearches);
+  } else {
+    pushSavedRecentSearches(savedRecentSearches, recentSearches);
+    recentSearches.push(c);
+    localStorage.removeItem("recentSearches");
+    localStorage.setItem("recentSearches", JSON.stringify(recentSearches));
+    checkLength(recentSearches);
+    renderRecentSearches(recentSearches);
+  }
+  }
+}
+
+function checkLength(arr) {
+  if (arr.length > 8) {
+    arr.shift();
+  }
+}
+
+function renderRecentSearches(arr) {
+  for (var i = 0; i < arr.length; i++) {
+    var newDiv = $("<div>");
+    var aLink = $("<a>");
+    var newH5 = $("<h5>");
+    $(newH5).text(arr[i]);
+    $(aLink).attr("src", "#");
+    $(aLink).addClass("recentSearch");
+    $(aLink).attr("id", "rS" + i);
+    $(aLink).append(newH5);
+    $(newDiv).addClass("row z-depth-5 rSRow");
+    $(newDiv).append(aLink);
+    $("#recentSearches").prepend(newDiv);
+  };
+}
+
+function pushSavedRecentSearches(arr, rS) {
+  for(var i = 0; i < arr.length; i++) {
+    rS.push(arr[i]);
+  }
+}
+
 $("#textarea1").keyup(function(event) {
   if (event.keyCode === 13) {
       $("#start-button").click();
@@ -162,6 +225,8 @@ $("#start-button").click(function(event) {
   event.preventDefault();
   search();
 });
+
+$("")
 
 
 init();

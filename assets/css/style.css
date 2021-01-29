@@ -20,7 +20,7 @@ body.fade-out {
   width: 100vw;
   height: 100vh;
   position: fixed;
-  transition: 0.5s;
+  transition: 1s;
 }
 
 .start-search {
@@ -44,19 +44,10 @@ body.fade-out {
   box-shadow: 0 1px 0 0 #d4e157 !important;
 }
 
-/* .overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: #d4e157;
-  mix-blend-mode: overlay;
-} */
 
 .fadedout {
   opacity: 0;
-  transition: 0.5s;
+  transition: 1s;
   scale: .8;
 }
 
@@ -72,6 +63,11 @@ body.fade-out {
 
 .leftCol {
   padding-left: 2%;
+}
+
+.forecast {
+  opacity: 1;
+  transition: 1s;
 }
 
 .leftBox {
@@ -136,7 +132,7 @@ a h5:hover {
   border: solid   grey;
   border-radius: 10px;
   display: inline-block;
-  position: absolute;
+  position: relative;
   left: 12.5%;
   width: 80%;
   height: auto;
@@ -255,4 +251,9 @@ a h5:hover {
   height: 80%;
   text-align: center;
   color: black; 
+}
+
+.newFade {
+  opacity: 0;
+  transition: 1s;
 }
