@@ -148,10 +148,10 @@ a h5:hover {
   opacity: .8;
   display: inline-block;
   position: absolute;
-  top: 10%;
+  top: 5%;
   border-radius: 10px;
   width: 100%;
-  height: auto;
+  height: 90%;
   text-align: center;
   color: black; 
 }
