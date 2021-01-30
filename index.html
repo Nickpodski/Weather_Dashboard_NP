@@ -7,8 +7,7 @@
   <link rel="stylesheet" type="text/css" href="assets/css/style.css">
   <title>Weather Dashboard</title>
 </head>
-<body>
-  <script>document.body.className += ' fade-out';</script>
+<body class="fade-out">
   <video class="bg-video" src="" muted loop autoplay></video>
 
   <div id="initialSearch" class="row start-search">
@@ -16,7 +15,7 @@
       <div class="row">
         <div class="input-field col l12">
           <textarea id="textarea1" class="materialize-textarea"></textarea>
-          <label for="textarea1">Enter a City</label>
+          <label for="textarea1" id="labelText">Enter a City</label>
           <button id="start-button" class="btn waves-effect waves-light lime lighten-1 black-text" type="submit" name="action">Submit</button>
         </div>
       </div>
@@ -32,6 +31,12 @@
           <div id="recentSearches">
 
           </div>
+          <div class="row z-depth-5 rSRow">
+            <a href="#" onclick="newSearch()"><h5>New Search</h5></a>
+          </div>
+          <div class="row z-depth-5 rSRow">
+            <a href="#" onclick="clearLocalStorage()"><h5>Clear Searches</h5></a>
+          </div>
       </div>
       <div class="col l10">
         <div class="row rightBox">
@@ -44,7 +49,8 @@
             <h5 id="temp-current"></h5>
             <h5 id="humidity-current"></h5>
             <h5 id="windSpeed-current"></h5>
-            <h5 id="UV-current"><h5 id="currentUV" class="uvNum"></h5></h5>
+            <h5 id="UV-current"></h5>
+            <h5 id="currentUV" class="uvNum"></h5>
           </div>
           <div class="col l1">
             

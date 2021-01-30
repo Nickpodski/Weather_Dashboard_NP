@@ -7,7 +7,7 @@ body {
   transition: 1s opacity;
 }
 
-body.fade-out {
+.fade-out {
   opacity: 0;
   transition: none;
 }
@@ -51,13 +51,8 @@ body.fade-out {
   scale: .8;
 }
 
-.transitonOne {
+.snarkleFoot {
   transform: scale(3);
-  opacity: 0;
-}
-
-.transitonTwo {
-  transform: scale(1.5);
   opacity: 0;
 }
 
@@ -143,13 +138,14 @@ a h5:hover {
   color: black;
   text-align: center;
   width: 100%;
+  height: auto;
+  padding: 0;
 }
 
 .cForecast {
   background-color:  grey;
   border: solid   grey;
   opacity: .8;
-  border: solid   grey;
   display: inline-block;
   position: absolute;
   top: 10%;
@@ -163,13 +159,38 @@ a h5:hover {
 #UV-current {
   display: inline;
 }
-
-.uvNum {
-  background-color: red;
-  border: solid red;
+.uvNumGreen {
+  background-color:green;
+  text-align: center;
   border-radius: 10px;
-  width: auto;
-  height: auto;
+  display: inline;
+}
+
+.uvNumYellow {
+  background-color: yellow;
+  text-align: center;
+  border-radius: 10px;
+  display: inline;
+}
+
+.uvNumOrange {
+  background-color: orange;
+  text-align: center;
+  border-radius: 10px;
+  display: inline;
+}
+
+.uvNumRed {
+  background-color: red;
+  text-align: center;
+  border-radius: 10px;
+  display: inline;
+}
+
+.uvNumPurple {
+  background-color: rgb(170, 80, 170);
+  text-align: center;
+  border-radius: 10px;
   display: inline;
 }
 

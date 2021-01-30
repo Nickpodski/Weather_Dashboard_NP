@@ -12,15 +12,20 @@ var hazeVideo = "assets/video/Haze_Loop.mp4";
 var mistVideo = "assets/video/Mist_Loop.mp4";
 var sandVideo = "assets/video/Sand_Loop.mp4";
 var smokeVideo = "assets/video/Smoke_Loop.mp4";
+var city;
+
 function init() {
   bgSrc = earthVid;
   bgVideo.attr("src", bgSrc);
   $("body").removeClass("fade-out");
+  if ($('#btnDiv').is('.rotated')) {
+    $('body').toggleClass('newFade');
+  }
+
 }
 
-function search() { 
+function search(city) { 
   var apiKey = '75f2a27969910e846981560755d54a24';
-  var city = $('#textarea1').val().trim();
   var s = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
   $.ajax({
     url: s,
@@ -90,12 +95,11 @@ function search() {
 };
 
 function renderBGVideo(bg) {
-  bgVideo.addClass("transitonOne");
+  bgVideo.addClass("snarkleFoot");
   $("#initialSearch").hide();
   setTimeout(function() {
     bgVideo.attr("src", "");
-    bgVideo.removeClass("transitonOne");
-    bgVideo.addClass("transitionTwo");
+    bgVideo.removeClass("snarkleFoot");
     bgVideo.attr("src", bg);
     $(".forecast").show();
   }, 1000);
@@ -117,6 +121,21 @@ function renderCurrentWeather(rTwo, city){
   $("#windSpeed-current").text("Wind Speed: " + currentWindSpeed + "MPH");
   $("#UV-current").text("UV Index: ");
   $("#currentUV").text(UV);
+  if (UV < 2 ) {
+    $("#currentUV").addClass("uvNumGreen"); 
+  }
+  if (UV >= 2 && UV < 6) {
+    $("#currentUV").addClass("uvNumYellow"); 
+  }
+  if (UV >= 6 && UV < 8 ) {
+    $("#currentUV").addClass("uvNumOrange"); 
+  }
+  if (UV >= 8 && UV < 11 ) {
+    $("#currentUV").addClass("uvNumRed"); 
+  }
+  if (UV >= 11 ) {
+    $("#currentUV").addClass("uvNumPurple"); 
+  }
 };
 
 function renderFiveDay(sR) {
@@ -188,7 +207,7 @@ function getRecentSearches(city) {
 }
 
 function checkLength(arr) {
-  if (arr.length > 8) {
+  if (arr.length > 6) {
     arr.shift();
   }
 }
@@ -199,8 +218,9 @@ function renderRecentSearches(arr) {
     var aLink = $("<a>");
     var newH5 = $("<h5>");
     $(newH5).text(arr[i]);
-    $(aLink).attr("src", "#");
-    $(aLink).addClass("recentSearch");
+    $(aLink).attr("href", "#");
+    $(aLink).attr("onclick", "oldSearch(event);");
+    $(aLink).addClass("recentSearch")
     $(aLink).attr("id", "rS" + i);
     $(aLink).append(newH5);
     $(newDiv).addClass("row z-depth-5 rSRow");
@@ -209,24 +229,88 @@ function renderRecentSearches(arr) {
   };
 }
 
+function oldSearch(event) {
+  $("#forecastBoxes").addClass("newFade");
+  var targetText = $(event.target);
+  city = targetText.text();
+  setTimeout(function() {
+    $("body").addClass("newFade");
+  }, 1000);
+  setTimeout(function() {
+    removeFiveDay();
+    $(".forecast").hide();
+    bgSrc = earthVid;
+    bgVideo.attr("src", bgSrc);
+    $("body").removeClass("newFade");
+    $("#displayCity").empty()
+    $(".rSRow").remove();
+    $("#temp-current").empty();
+    $("#humidity-current").empty();
+    $("#windSpeed-current").empty();
+    $("#UV-current").empty();
+    $("#currentUV").empty();
+  }, 2000);
+  setTimeout(function() {
+    $("#forecastBoxes").hide();
+    search(city);
+  }, 3000);
+}
+
+function removeFiveDay() {
+  for (var i = 0; i <= 6; i++) {
+    var box = "#fcBox" + i;
+    $(box).empty();
+  }
+};
+
 function pushSavedRecentSearches(arr, rS) {
   for(var i = 0; i < arr.length; i++) {
     rS.push(arr[i]);
   }
 }
 
-$("#textarea1").keyup(function(event) {
+function clearLocalStorage() {
+  localStorage.clear();
+}
+
+function newSearch() {
+  $("#forecastBoxes").addClass("newFade");
+  setTimeout(function() {
+    $("body").addClass("newFade");
+  }, 1000);
+  setTimeout(function() {
+    removeFiveDay();
+    $(".forecast").hide();
+    bgSrc = earthVid;
+    bgVideo.attr("src", bgSrc);
+    $("body").removeClass("newFade");
+    $("#displayCity").empty()
+    $(".rSRow").remove();
+    $("#temp-current").empty();
+    $("#humidity-current").empty();
+    $("#windSpeed-current").empty();
+    $("#UV-current").empty();
+    $("#currentUV").empty();
+    $("#textarea1").val('');
+    $("#labelText").removeClass("active");
+  }, 2000);
+  setTimeout(function() {
+    $("#initialSearch").show();
+    $("#forecastBoxes").hide();
+  }, 3000);
+}
+
+$("#textarea1").keypress(function(event) {
   if (event.keyCode === 13) {
-      $("#start-button").click();
+    event.preventDefault();
+    $("#start-button").click();
   }
 });
 
 $("#start-button").click(function(event) {
   event.preventDefault();
-  search();
+  city = $('#textarea1').val().trim();
+  search(city);
 });
-
-$("")
-
 
 init();
