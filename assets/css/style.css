@@ -28,6 +28,7 @@ body {
   top: 50%;
   left: 33%;
   width: 30%;
+  transition: 1s;
 }
 
 #textarea1 {

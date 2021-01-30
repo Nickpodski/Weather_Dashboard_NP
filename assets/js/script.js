@@ -280,6 +280,8 @@ function clearLocalStorage() {
 
 function newSearch() {
   $("#forecastBoxes").addClass("newFade");
+  $("#initialSearch").addClass("newFade");
+  $("#initialSearch").show();
   setTimeout(function() {
     $("body").addClass("newFade");
   }, 1000);
@@ -289,6 +291,7 @@ function newSearch() {
     bgSrc = earthVid;
     bgVideo.attr("src", bgSrc);
     $("body").removeClass("newFade");
+
     $("#displayCity").empty();
     $("#recentSearches").empty();
     $("#recentSearchRow").remove();
@@ -301,8 +304,8 @@ function newSearch() {
     $("#labelText").removeClass("active");
   }, 2000);
   setTimeout(function() {
-    $("#initialSearch").show();
     $("#forecastBoxes").hide();
+    $("#initialSearch").removeClass("newFade");
   }, 3000);
 }
 
