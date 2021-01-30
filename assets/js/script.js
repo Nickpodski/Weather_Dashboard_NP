@@ -224,12 +224,14 @@ function renderRecentSearches(arr) {
     $(aLink).attr("id", "rS" + i);
     $(aLink).append(newH5);
     $(newDiv).addClass("row z-depth-5 rSRow");
+    $(newDiv).attr("id", "recentSearchRow");
     $(newDiv).append(aLink);
     $("#recentSearches").prepend(newDiv);
   };
 }
 
-function oldSearch(event) {
+function oldSearch(e) {
+  e.preventDefault();
   $("#forecastBoxes").addClass("newFade");
   var targetText = $(event.target);
   city = targetText.text();
@@ -242,8 +244,9 @@ function oldSearch(event) {
     bgSrc = earthVid;
     bgVideo.attr("src", bgSrc);
     $("body").removeClass("newFade");
-    $("#displayCity").empty()
-    $(".rSRow").remove();
+    $("#displayCity").empty();
+    $("#recentSearches").empty();
+    $("#recentSearchRow").remove();
     $("#temp-current").empty();
     $("#humidity-current").empty();
     $("#windSpeed-current").empty();
@@ -271,6 +274,8 @@ function pushSavedRecentSearches(arr, rS) {
 
 function clearLocalStorage() {
   localStorage.clear();
+  $("#recentSearches").empty();
+  $("#recentSearchRow").remove();
 }
 
 function newSearch() {
@@ -284,8 +289,9 @@ function newSearch() {
     bgSrc = earthVid;
     bgVideo.attr("src", bgSrc);
     $("body").removeClass("newFade");
-    $("#displayCity").empty()
-    $(".rSRow").remove();
+    $("#displayCity").empty();
+    $("#recentSearches").empty();
+    $("#recentSearchRow").remove();
     $("#temp-current").empty();
     $("#humidity-current").empty();
     $("#windSpeed-current").empty();

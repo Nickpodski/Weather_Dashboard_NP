@@ -278,3 +278,72 @@ a h5:hover {
   opacity: 0;
   transition: 1s;
 }
+
+@media only screen and (max-width: 1400px) {
+  .leftBox {
+    order: 3;
+    position: unset;
+    width: 100%;
+    height: auto;
+  }
+  
+  .rightBox {
+    order: 1;
+    position: unset;
+    width: 100%;
+    height: auto;
+  }
+  
+  .rightBoxTwo {
+    order: 2;
+    position: unset;
+    width: 100%;
+    height: auto;
+  }
+  
+  .fcBox1 {
+    position: unset;
+    width: 80%;
+    height: auto;
+    display: inline-block;
+    margin: 20px;
+  }
+  
+  .fcBox2 {
+    position: unset;
+    width: 80%;
+    height: auto;
+    display: inline-block;
+    margin: 20px;
+  }
+  
+  .fcBox3 {
+    position: unset;
+    width: 80%;
+    height: auto;
+    display: inline-block;
+    margin: 20px;
+  }
+  
+  .fcBox4 {
+    position: unset;
+    width: 80%;
+    height: auto;
+    display: inline-block;
+    margin: 20px;
+  }
+  
+  .fcBox5 {
+    position: unset;
+    width: 80%;
+    height: auto;
+    display: inline-block;
+    margin: 20px;
+  }
+
+  .cForecast {
+    position: unset;
+    width: 80%;
+    margin: 20px;
+  }
+}
