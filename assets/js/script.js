@@ -41,7 +41,7 @@ function search(city) {
     var cityLat = response.coord.lat;
     var cityLon = response.coord.lon;
     var iconCode = response.weather[0].icon;
-    var iconUrl = "http://openweathermap.org/img/w/" + iconCode + ".png";
+    var iconUrl = "https://openweathermap.org/img/w/" + iconCode + ".png";
     $("#wiconCurrent").attr('src', iconUrl);
     if (bWeatherStr === "Clear") {
       renderBGVideo(sunVideo);
